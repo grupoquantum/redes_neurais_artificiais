@@ -107,7 +107,7 @@ epoch...............................: 5 - loss: 0.14949561
 Note na figura abaixo que para o operador OR só precisamos de uma única linha (linear) para separar as respostas do tipo 0 das respostas do tipo 1. Isso por que há uma progressão linear dos valores de saída, pois eles partem de 0 e uma vez que entram no estado 1 não retornam para o 0 mantendo a linearidade da progressão. Já no XOR os valores de saída partem de 0 para 1 e depois retornam para 0, ou seja, não seguem uma progressão linear e por isso são necessárias duas linhas para realizar a separação. Essa segunda linha extra é representada pela camada oculta da rede.  Quando colocamos uma camada extra entre a entrada e a saída os produtos das entradas pelos pesos sofrem uma nova sequência de multiplicações que retira a linearidade dos dados tornando possível o reconhecimento de padrões não lineares.
 </p>
 <br>
-<div align="center"><img src="https://github.com/aiquantumneuro/redes_neurais_artificiais/blob/main/operadores_or_xor.png"></div>
+<div align="center"><img src="https://github.com/grupoquantum/redes_neurais_artificiais/blob/main/operadores_or_xor.png"></div>
 <br>
 <p align="justify">
 Antes só precisávamos reconhecer dois padrões, um abaixo e outro acima da linha, agora precisamos reconhecer três, um na parte de baixo, um no meio e outro em cima. Para dois padrões ou menos as duas camadas default (entrada e saída) eram o suficiente, porém para três padrões precisaremos de três camadas, uma na entrada, uma no meio (oculta) e outra na saída. Quanto maior o número de camadas maior será a quantidade de padrões que poderão ser aprendidos, mas cuidado, ao exceder a quantidade de camadas para além do necessário você poderá estar assimilando padrões irrelevantes que irão influenciar o seu resultado sem que houvesse essa necessidade, em muitos casos resultando em respostas incorretas.
@@ -117,7 +117,7 @@ Antes só precisávamos reconhecer dois padrões, um abaixo e outro acima da lin
 Com o Multilayer Perceptron temos a capacidade de adicionar quantas camadas ocultas forem necessárias ao neurônio o transformando em uma rede neural artificial que conecta o neurônio formado pela entrada e saída a um ou mais neurônios formados pelas camadas ocultas. Como agora estaremos assimilando mais padrões do que antes teremos que aumentar o número de backpropagations no parâmetro “epochs” para dar mais tempo para os padrões serem assimilados e a função de ativação dessa vez deverá ser atribuída a camada oculta e não mais a camada de saída pelo método de treinamento, isso por que a formatação da camada oculta será propagada para a saída não havendo a necessidade de repetir a formatação. Dessa vez iremos utilizar a função de ativação linear, pois como a nossa rede perderá a linearidade com a camada oculta nós não queremos que a não linearidade seja muito exagerada já que temos apenas dois números (0 e 1). No parâmetro “hidden_nodes” da camada oculta definiremos o número de nós (pesos) que a nossa camada irá utilizar para multiplica-los pelos valores de entrada, geralmente definimos um nó a mais com relação à camada anterior, como a nossa camada de entrada recebe uma lista com dois elementos (dois nós) então na camada seguinte que é a oculta iremos definir três, mas isso não é uma regra, apenas um norte por onde iniciar os testes. Também iremos definir na nossa camada oculta o tipo de conexão densa com o parâmetro “dense” igual à True para aumentar a precisão no resultado. Camadas densas multiplicam cada nó por todos os nós da camada anterior e posterior, diferente da conexão esparsa que multiplica cada nó apenas uma única vez. Confira na imagem abaixo como ficaria a representação gráfica da nossa arquitetura:	
 </p>
 <br>
-<div align="center"><img src="https://github.com/aiquantumneuro/redes_neurais_artificiais/blob/main/multilayer_perceptron.png"></div>
+<div align="center"><img src="https://github.com/grupoquantum/redes_neurais_artificiais/blob/main/multilayer_perceptron.png"></div>
 <br>
 <p align="justify">
 Temos duas entradas na camada de entrada com um único número de resposta na camada de saída e uma camada oculta linear densa com três nós entre elas. Nos nós da camada de entrada poderemos receber 0 com 0, 0 com 1, 1 com 0 ou 1 com 1 e na camada de saída teremos um único nó de resultado que poderá ser 0 ou 1.
@@ -552,13 +552,13 @@ epoch...............................: 5 - loss: 0.00000000
 Lembre-se de que padrões que podem ser separados por uma única linha na tabela de dados não necessitam de camada oculta para assimilar todos os padrões envolvidos, mas padrões como os do operador lógico XOR que não podem ser classificados de forma linear precisam de pelo menos uma camada oculta para assimilar todos os padrões. Confira na figura a seguir a comparação dos operadores distribuídos de forma tabular em uma tabela de dados para relembrarmos o conceito, a coluna F representa os Fields/Campos de saída:
 </p>
 <br>
-<div align="justify"><img src="https://github.com/aiquantumneuro/redes_neurais_artificiais/blob/main/operadores_and_or_xor.jpg"></div>
+<div align="justify"><img src="https://github.com/grupoquantum/redes_neurais_artificiais/blob/main/operadores_and_or_xor.jpg"></div>
 <br>
 <p align="justify">
 É possível notar na figura acima que enquanto os operadores AND e OR podem ser separados por uma única linha que divide a tabela em duas regiões diferentes, sendo a região superior referente aos outputs do tipo 0 e a região inferior referente aos outputs do tipo 1, o mesmo não pode ser dito do operador XOR que necessita de duas linhas para separar os outputs do tipo 0 dos outputs do tipo 1. Observe na figura abaixo que a dificuldade também se repete ao tentarmos fazer a separação do XOR com uma única linha no plano cartesiano.
 </p>
 <br>
-<div align="justify"><img src="https://github.com/aiquantumneuro/redes_neurais_artificiais/blob/main/operadores_and_or_xor_no_plano_cartesiano.png"></div>
+<div align="justify"><img src="https://github.com/grupoquantum/redes_neurais_artificiais/blob/main/operadores_and_or_xor_no_plano_cartesiano.png"></div>
 <br>
 <p align="justify">
 Na imagem acima temos um padrão diagonal de descendência linear para os operadores AND e OR, mas não é possível aplicar a classificação na distribuição do XOR da mesma forma que fizemos com os outros operadores. Logo deveríamos acrescentar uma camada oculta no nosso algoritmo correto? Errado. O algoritmo Neural Network é tão poderoso que é capaz de perceber essa não linearidade exigida nos dados e acrescentar por conta própria uma camada oculta em tempo de execução sem que você sequer dê conta disso. Confira como é muito mais simples fazer isso com a Neural Network observando o código do algoritmo a seguir:
