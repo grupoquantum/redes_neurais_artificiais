@@ -1,7 +1,7 @@
 <h4>Redes Neurais Artificiais</h4>
 <p align="justify">
 <p align="justify">
-O algoritmo de rede neural artificial é uma abstração matemática baseada no funcionamento da atividade neuronal do cérebro e tenda traduzir uma arquitetura analógica da biologia em uma arquitetura digital que possa ser computada de forma estritamente matemática. O primeiro algoritmo desse tipo a ser formulado foi o Perceptron que consiste em uma fórmula matemática abstraída das principais funções de um único neurônio, também conhecida como função de aproximação por tentar aproximar uma entrada de uma saída específica.<br>
+O algoritmo de rede neural artificial (RNA) é uma abstração matemática baseada no funcionamento da atividade neuronal do cérebro e tenda traduzir uma arquitetura analógica da biologia em uma arquitetura digital que possa ser computada de forma estritamente matemática. O primeiro algoritmo desse tipo a ser formulado foi o Perceptron que consiste em uma fórmula matemática abstraída das principais funções de um único neurônio, também conhecida como função de aproximação por tentar aproximar uma entrada de uma saída específica.<br>
 </p>
 <h5>Perceptron/Perceptron Simples</h5>
 <p align="justify">
